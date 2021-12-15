@@ -1,8 +1,8 @@
 package entities;
 
-public class Queue {
+public class Queue<T> {
 
-    private Node refNodeQueueIn;
+    private Node<T> refNodeQueueIn;
 
     public Queue() {
         this.refNodeQueueIn = null;
@@ -12,18 +12,18 @@ public class Queue {
         return refNodeQueueIn == null ? true : false;
     }
 
-    public void enqueue(Object object){
+    public void enqueue(T object){
         Node newNode = new Node(object);
         newNode.setRefNode(refNodeQueueIn);
         refNodeQueueIn = newNode;
     }
 
-    public Object first(){
+    public T first(){
         if(!this.isEmpty()){
             Node firstNode = refNodeQueueIn;
             while(true){
                 if(firstNode.getRefNode() == null){
-                    return firstNode.getObject();
+                    return (T) firstNode.getObject();
                 }
                 else{
                     firstNode = firstNode.getRefNode();
@@ -35,7 +35,7 @@ public class Queue {
         }
     }
 
-    public Object dequeue(){
+    public T dequeue(){
         if(!this.isEmpty()){
             Node firstNode = refNodeQueueIn;
             Node auxNode =  refNodeQueueIn;
@@ -46,7 +46,7 @@ public class Queue {
                 }
                 else{
                     auxNode.setRefNode(null);
-                    return firstNode.getObject();
+                    return (T) firstNode.getObject();
                 }
             }
         }
