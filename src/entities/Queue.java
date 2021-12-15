@@ -12,17 +12,18 @@ public class Queue {
         return refNodeQueueIn == null ? true : false;
     }
 
-    public void enqueue(Node newNode){
+    public void enqueue(Object object){
+        Node newNode = new Node(object);
         newNode.setRefNode(refNodeQueueIn);
         refNodeQueueIn = newNode;
     }
 
-    public Node first(){
+    public Object first(){
         if(!this.isEmpty()){
             Node firstNode = refNodeQueueIn;
             while(true){
                 if(firstNode.getRefNode() == null){
-                    return firstNode;
+                    return firstNode.getObject();
                 }
                 else{
                     firstNode = firstNode.getRefNode();
@@ -34,7 +35,7 @@ public class Queue {
         }
     }
 
-    public Node dequeue(){
+    public Object dequeue(){
         if(!this.isEmpty()){
             Node firstNode = refNodeQueueIn;
             Node auxNode =  refNodeQueueIn;
@@ -45,7 +46,7 @@ public class Queue {
                 }
                 else{
                     auxNode.setRefNode(null);
-                    return firstNode;
+                    return firstNode.getObject();
                 }
             }
         }

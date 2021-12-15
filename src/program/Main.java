@@ -8,10 +8,10 @@ public class Main {
 
         Queue myQueue = new Queue();
 
-        myQueue.enqueue(new Node("fisrt"));
-        myQueue.enqueue(new Node("second"));
-        myQueue.enqueue(new Node("third"));
-        myQueue.enqueue(new Node("fourth"));
+        myQueue.enqueue("fisrt");
+        myQueue.enqueue("second");
+        myQueue.enqueue("third");
+        myQueue.enqueue("fourth");
 
         System.out.println(myQueue);
 
@@ -19,7 +19,7 @@ public class Main {
 
         System.out.println(myQueue);
 
-        myQueue.enqueue(new Node("last"));
+        myQueue.enqueue("last");
 
         System.out.println(myQueue);
     }
